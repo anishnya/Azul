@@ -18,17 +18,34 @@ from iplayer import InteractivePlayer
 from naive_player import NaivePlayer
 from random_player import RandomPlayer
 from utils import *
+import random
 
-players = [RandomPlayer(0), NaivePlayer(1), NaivePlayer(2),NaivePlayer(3)]
 
-gr = GameRunner(players, 1384754856864)
+def runGame():
+    players = [RandomPlayer(0), NaivePlayer(1), NaivePlayer(2),NaivePlayer(3)]
 
-activity = gr.Run(False)
+    gr = GameRunner(players, random.randint(0, 1000000000))
 
-print("Player 0 score is {}".format(activity[0][0]))
-print("Player 1 score is {}".format(activity[1][0]))
-print("Player 2 score is {}".format(activity[2][0]))
-print("Player 3 score is {}".format(activity[3][0]))
+    activity = gr.Run(False)
+
+    print("Player 0 score is {}".format(activity[0][0]))
+    print("Player 1 score is {}".format(activity[1][0]))
+    print("Player 2 score is {}".format(activity[2][0]))
+    print("Player 3 score is {}".format(activity[3][0]))
+
+    return [activity[0][0], activity[1][0], activity[2][0], activity[3][0]]
+
+
+
+if __name__ == "__main__":
+    totalScores = [0, 0, 0, 0]
+    for _ in range(100):
+        newScores = runGame()
+
+        for i in range(len(newScores)):
+            totalScores[i] += newScores[i]
+    
+    print(totalScores)
 
 
 #print("Player 0 round-by-round activity")

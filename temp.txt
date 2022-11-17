@@ -1,0 +1,501 @@
+0
+Player 0 score is 3.0
+Player 1 score is 37.0
+Player 2 score is 40.0
+Player 3 score is 59.0
+0
+Player 0 score is 0
+Player 1 score is 30.0
+Player 2 score is 24.0
+Player 3 score is 30.0
+0
+Player 0 score is 3.0
+Player 1 score is 25.0
+Player 2 score is 46.0
+Player 3 score is 37.0
+0
+Player 0 score is 0
+Player 1 score is 32.0
+Player 2 score is 34.0
+Player 3 score is 4.0
+0
+Player 0 score is 3.0
+Player 1 score is 37.0
+Player 2 score is 24.0
+Player 3 score is 32.0
+0
+Player 0 score is 0.0
+Player 1 score is 19.0
+Player 2 score is 23.0
+Player 3 score is 33.0
+0
+Player 0 score is 0.0
+Player 1 score is 41.0
+Player 2 score is 44.0
+Player 3 score is 34.0
+0
+Player 0 score is 3.0
+Player 1 score is 24.0
+Player 2 score is 47.0
+Player 3 score is 36.0
+0
+Player 0 score is 3.0
+Player 1 score is 34.0
+Player 2 score is 27.0
+Player 3 score is 18.0
+0
+Player 0 score is 2.0
+Player 1 score is 7.0
+Player 2 score is 23.0
+Player 3 score is 25.0
+0
+Player 0 score is 2.0
+Player 1 score is 46.0
+Player 2 score is 32.0
+Player 3 score is 39.0
+0
+Player 0 score is 0
+Player 1 score is 31.0
+Player 2 score is 28.0
+Player 3 score is 45.0
+0
+Player 0 score is 0
+Player 1 score is 29.0
+Player 2 score is 35.0
+Player 3 score is 26.0
+0
+Player 0 score is 0.0
+Player 1 score is 63.0
+Player 2 score is 38.0
+Player 3 score is 14.0
+0
+Player 0 score is 0
+Player 1 score is 7.0
+Player 2 score is 48.0
+Player 3 score is 42.0
+0
+Player 0 score is 0
+Player 1 score is 11.0
+Player 2 score is 32.0
+Player 3 score is 26.0
+0
+Player 0 score is 1.0
+Player 1 score is 37.0
+Player 2 score is 48.0
+Player 3 score is 63.0
+0
+Player 0 score is 1.0
+Player 1 score is 26.0
+Player 2 score is 24.0
+Player 3 score is 34.0
+0
+Player 0 score is 0
+Player 1 score is 60.0
+Player 2 score is 37.0
+Player 3 score is 38.0
+0
+Player 0 score is 2
+Player 1 score is 34.0
+Player 2 score is 27.0
+Player 3 score is 11.0
+0
+Player 0 score is 6.0
+Player 1 score is 32.0
+Player 2 score is 18.0
+Player 3 score is 32.0
+0
+Player 0 score is 7.0
+Player 1 score is 55.0
+Player 2 score is 26.0
+Player 3 score is 36.0
+0
+Player 0 score is 0
+Player 1 score is 33.0
+Player 2 score is 18.0
+Player 3 score is 13.0
+0
+Player 0 score is 0
+Player 1 score is 23.0
+Player 2 score is 17.0
+Player 3 score is 52.0
+0
+Player 0 score is 0.0
+Player 1 score is 31.0
+Player 2 score is 25.0
+Player 3 score is 25.0
+0
+Player 0 score is 0.0
+Player 1 score is 42.0
+Player 2 score is 28.0
+Player 3 score is 37.0
+0
+Player 0 score is 0
+Player 1 score is 61.0
+Player 2 score is 14.0
+Player 3 score is 31.0
+0
+Player 0 score is 0
+Player 1 score is 14.0
+Player 2 score is 28.0
+Player 3 score is 33.0
+0
+Player 0 score is 3.0
+Player 1 score is 34.0
+Player 2 score is 28.0
+Player 3 score is 8.0
+0
+Player 0 score is 0
+Player 1 score is 16.0
+Player 2 score is 26.0
+Player 3 score is 19.0
+0
+Player 0 score is 0
+Player 1 score is 63.0
+Player 2 score is 18.0
+Player 3 score is 30.0
+0
+Player 0 score is 0.0
+Player 1 score is 41.0
+Player 2 score is 22.0
+Player 3 score is 14.0
+0
+Player 0 score is 0
+Player 1 score is 28.0
+Player 2 score is 31.0
+Player 3 score is 37.0
+0
+Player 0 score is 0.0
+Player 1 score is 29.0
+Player 2 score is 48.0
+Player 3 score is 26.0
+0
+Player 0 score is 0.0
+Player 1 score is 33.0
+Player 2 score is 39.0
+Player 3 score is 24.0
+0
+Player 0 score is 0.0
+Player 1 score is 7.0
+Player 2 score is 23.0
+Player 3 score is 47.0
+0
+Player 0 score is 2.0
+Player 1 score is 33.0
+Player 2 score is 25.0
+Player 3 score is 44.0
+0
+Player 0 score is 1.0
+Player 1 score is 8.0
+Player 2 score is 24.0
+Player 3 score is 38.0
+0
+Player 0 score is 0
+Player 1 score is 57.0
+Player 2 score is 13.0
+Player 3 score is 26.0
+0
+Player 0 score is 0
+Player 1 score is 60.0
+Player 2 score is 52.0
+Player 3 score is 36.0
+0
+Player 0 score is 0
+Player 1 score is 27.0
+Player 2 score is 37.0
+Player 3 score is 23.0
+0
+Player 0 score is 0
+Player 1 score is 38.0
+Player 2 score is 45.0
+Player 3 score is 36.0
+0
+Player 0 score is 0.0
+Player 1 score is 27.0
+Player 2 score is 44.0
+Player 3 score is 22.0
+0
+Player 0 score is 0
+Player 1 score is 41.0
+Player 2 score is 30.0
+Player 3 score is 1.0
+0
+Player 0 score is 0
+Player 1 score is 60.0
+Player 2 score is 2.0
+Player 3 score is 22.0
+0
+Player 0 score is 0.0
+Player 1 score is 22.0
+Player 2 score is 42.0
+Player 3 score is 31.0
+0
+Player 0 score is 2.0
+Player 1 score is 71.0
+Player 2 score is 35.0
+Player 3 score is 31.0
+0
+Player 0 score is 0.0
+Player 1 score is 44.0
+Player 2 score is 5.0
+Player 3 score is 22.0
+0
+Player 0 score is 0
+Player 1 score is 37.0
+Player 2 score is 19.0
+Player 3 score is 38.0
+0
+Player 0 score is 0.0
+Player 1 score is 56.0
+Player 2 score is 23.0
+Player 3 score is 33.0
+0
+Player 0 score is 0.0
+Player 1 score is 43.0
+Player 2 score is 8.0
+Player 3 score is 43.0
+0
+Player 0 score is 0
+Player 1 score is 34.0
+Player 2 score is 42.0
+Player 3 score is 20.0
+0
+Player 0 score is 0.0
+Player 1 score is 32.0
+Player 2 score is 21.0
+Player 3 score is 24.0
+0
+Player 0 score is 0
+Player 1 score is 34.0
+Player 2 score is 34.0
+Player 3 score is 44.0
+0
+Player 0 score is 0
+Player 1 score is 52.0
+Player 2 score is 17.0
+Player 3 score is 27.0
+0
+Player 0 score is 2.0
+Player 1 score is 26.0
+Player 2 score is 50.0
+Player 3 score is 37.0
+0
+Player 0 score is 3.0
+Player 1 score is 23.0
+Player 2 score is 40.0
+Player 3 score is 46.0
+0
+Player 0 score is 6.0
+Player 1 score is 25.0
+Player 2 score is 17.0
+Player 3 score is 29.0
+0
+Player 0 score is 0.0
+Player 1 score is 42.0
+Player 2 score is 24.0
+Player 3 score is 23.0
+0
+Player 0 score is 6.0
+Player 1 score is 12.0
+Player 2 score is 23.0
+Player 3 score is 19.0
+0
+Player 0 score is 0.0
+Player 1 score is 41.0
+Player 2 score is 39.0
+Player 3 score is 30.0
+0
+Player 0 score is 2.0
+Player 1 score is 48.0
+Player 2 score is 37.0
+Player 3 score is 46.0
+0
+Player 0 score is 0
+Player 1 score is 50.0
+Player 2 score is 39.0
+Player 3 score is 33.0
+0
+Player 0 score is 0
+Player 1 score is 42.0
+Player 2 score is 29.0
+Player 3 score is 54.0
+0
+Player 0 score is 0.0
+Player 1 score is 35.0
+Player 2 score is 34.0
+Player 3 score is 70.0
+0
+Player 0 score is 0.0
+Player 1 score is 28.0
+Player 2 score is 24.0
+Player 3 score is 26.0
+0
+Player 0 score is 0
+Player 1 score is 31.0
+Player 2 score is 28.0
+Player 3 score is 30.0
+0
+Player 0 score is 0
+Player 1 score is 49.0
+Player 2 score is 25.0
+Player 3 score is 24.0
+0
+Player 0 score is 4.0
+Player 1 score is 45.0
+Player 2 score is 37.0
+Player 3 score is 25.0
+0
+Player 0 score is 0
+Player 1 score is 18.0
+Player 2 score is 53.0
+Player 3 score is 58.0
+0
+Player 0 score is 7.0
+Player 1 score is 30.0
+Player 2 score is 12.0
+Player 3 score is 30.0
+0
+Player 0 score is 2.0
+Player 1 score is 34.0
+Player 2 score is 46.0
+Player 3 score is 35.0
+0
+Player 0 score is 1.0
+Player 1 score is 27.0
+Player 2 score is 46.0
+Player 3 score is 36.0
+0
+Player 0 score is 0.0
+Player 1 score is 46.0
+Player 2 score is 50.0
+Player 3 score is 47.0
+0
+Player 0 score is 0.0
+Player 1 score is 40.0
+Player 2 score is 10.0
+Player 3 score is 22.0
+0
+Player 0 score is 0.0
+Player 1 score is 63.0
+Player 2 score is 14.0
+Player 3 score is 27.0
+0
+Player 0 score is 0.0
+Player 1 score is 23.0
+Player 2 score is 28.0
+Player 3 score is 3.0
+0
+Player 0 score is 5.0
+Player 1 score is 57.0
+Player 2 score is 29.0
+Player 3 score is 36.0
+0
+Player 0 score is 0
+Player 1 score is 49.0
+Player 2 score is 25.0
+Player 3 score is 27.0
+0
+Player 0 score is 0.0
+Player 1 score is 50.0
+Player 2 score is 34.0
+Player 3 score is 43.0
+0
+Player 0 score is 0.0
+Player 1 score is 31.0
+Player 2 score is 33.0
+Player 3 score is 25.0
+0
+Player 0 score is 0
+Player 1 score is 37.0
+Player 2 score is 27.0
+Player 3 score is 24.0
+0
+Player 0 score is 0
+Player 1 score is 43.0
+Player 2 score is 35.0
+Player 3 score is 14.0
+0
+Player 0 score is 10.0
+Player 1 score is 31.0
+Player 2 score is 31.0
+Player 3 score is 0.0
+0
+Player 0 score is 0
+Player 1 score is 39.0
+Player 2 score is 47.0
+Player 3 score is 37.0
+0
+Player 0 score is 0
+Player 1 score is 42.0
+Player 2 score is 37.0
+Player 3 score is 37.0
+0
+Player 0 score is 0
+Player 1 score is 41.0
+Player 2 score is 39.0
+Player 3 score is 23.0
+0
+Player 0 score is 0
+Player 1 score is 30.0
+Player 2 score is 31.0
+Player 3 score is 36.0
+0
+Player 0 score is 0
+Player 1 score is 30.0
+Player 2 score is 28.0
+Player 3 score is 19.0
+0
+Player 0 score is 3.0
+Player 1 score is 32.0
+Player 2 score is 24.0
+Player 3 score is 47.0
+0
+Player 0 score is 1.0
+Player 1 score is 67.0
+Player 2 score is 37.0
+Player 3 score is 32.0
+0
+Player 0 score is 0
+Player 1 score is 41.0
+Player 2 score is 62.0
+Player 3 score is 29.0
+0
+Player 0 score is 1.0
+Player 1 score is 16.0
+Player 2 score is 27.0
+Player 3 score is 28.0
+0
+Player 0 score is 2.0
+Player 1 score is 56.0
+Player 2 score is 49.0
+Player 3 score is 23.0
+0
+Player 0 score is 0.0
+Player 1 score is 18.0
+Player 2 score is 17.0
+Player 3 score is 26.0
+0
+Player 0 score is 0
+Player 1 score is 51.0
+Player 2 score is 45.0
+Player 3 score is 2.0
+0
+Player 0 score is 0
+Player 1 score is 44.0
+Player 2 score is 18.0
+Player 3 score is 22.0
+0
+Player 0 score is 0
+Player 1 score is 38.0
+Player 2 score is 23.0
+Player 3 score is 21.0
+0
+Player 0 score is 0.0
+Player 1 score is 31.0
+Player 2 score is 50.0
+Player 3 score is 14.0
+0
+Player 0 score is 0.0
+Player 1 score is 26.0
+Player 2 score is 36.0
+Player 3 score is 38.0
+[99.0, 3626.0, 3097.0, 3024.0]
