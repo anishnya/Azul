@@ -17,35 +17,50 @@ from model import GameRunner,Player
 from iplayer import InteractivePlayer
 from naive_player import NaivePlayer
 from random_player import RandomPlayer
+from minimaxPlayer import MiniMaxPlayer
 from utils import *
 import random
+import numpy as np
 
+numRounds = 50
 
-def runGame():
-    players = [RandomPlayer(0), NaivePlayer(1), NaivePlayer(2),NaivePlayer(3)]
+def runGame(n_random=0):
+    # players = [RandomPlayer(0), NaivePlayer(1), NaivePlayer(2),NaivePlayer(3)]
+    players = []
+    for i in range(n_random):
+        players.append(NaivePlayer(i))
+    for i in range(n_random, 4):
+        players.append(RandomPlayer(i))
 
     gr = GameRunner(players, random.randint(0, 1000000000))
 
     activity = gr.Run(False)
 
-    print("Player 0 score is {}".format(activity[0][0]))
-    print("Player 1 score is {}".format(activity[1][0]))
-    print("Player 2 score is {}".format(activity[2][0]))
-    print("Player 3 score is {}".format(activity[3][0]))
+    # print("Player 0 score is {}".format(activity[0][0]))
+    # print("Player 1 score is {}".format(activity[1][0]))
+    # print("Player 2 score is {}".format(activity[2][0]))
+    # print("Player 3 score is {}".format(activity[3][0]))
 
     return [activity[0][0], activity[1][0], activity[2][0], activity[3][0]]
 
+def computeAvg(arr):
+    return float(np.sum(arr)) / numRounds
 
 
 if __name__ == "__main__":
-    totalScores = [0, 0, 0, 0]
-    for _ in range(100):
-        newScores = runGame()
+    for k in range(5):
+        totalScores = [0, 0, 0, 0]
+        victories = [0, 0, 0, 0]
 
-        for i in range(len(newScores)):
-            totalScores[i] += newScores[i]
-    
-    print(totalScores)
+        print(f"{k} minimax players vs {4-k} naive players:")
+        for _ in range(numRounds):
+            newScores = runGame(n_random=k)
+            victories[newScores.index(max(newScores))] += 1
+            for i in range(len(newScores)):
+                totalScores[i] += newScores[i]
+
+        print(victories)
+        print(list(map(computeAvg, totalScores)))
 
 
 #print("Player 0 round-by-round activity")

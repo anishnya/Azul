@@ -1,0 +1,10 @@
+0 random players vs 4 naive players:
+[29.81, 29.25, 31.92, 28.04]
+1 random players vs 3 naive players:
+[0.66, 33.76, 29.95, 27.18]
+2 random players vs 2 naive players:
+[0.96, 0.43, 36.67, 30.22]
+3 random players vs 1 naive players:
+[0.74, 0.91, 0.87, 39.84]
+4 random players vs 0 naive players:
+[1.95, 1.81, 2.03, 1.5]

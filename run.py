@@ -17,9 +17,10 @@ from model import GameRunner,Player
 from iplayer import InteractivePlayer
 from naive_player import NaivePlayer
 from random_player import RandomPlayer
+from minimaxPlayer import MiniMaxPlayer
 from utils import *
 
-players = [RandomPlayer(0), NaivePlayer(1), NaivePlayer(2),NaivePlayer(3)]
+players = [MiniMaxPlayer(0), NaivePlayer(1), NaivePlayer(2), NaivePlayer(3)]
 
 gr = GameRunner(players, 1384754856864)
 

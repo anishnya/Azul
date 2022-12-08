@@ -530,7 +530,6 @@ class GameState:
             _,used = plr.ScoreRound()
             self.bag_used.extend(used)
 
-
     # Execute move by given player
     def ExecuteMove(self, player_id, move):
         plr_state = self.players[player_id]
@@ -584,6 +583,8 @@ class GameState:
                 if num_on_fd > 0:
                     self.centre_pool.AddTiles(num_on_fd, tile)
                     fac.RemoveTiles(num_on_fd, tile)
+        
+
                     
 
 
@@ -600,9 +601,24 @@ class Player(object):
         return random.choice(moves)
 
 
+def getFeatureVec(game_state):
+    # Get all features
+    grid = game_state.players[0].grid_state.flatten() # 2d -> 1d (25)
+    lines = game_state.players[0].lines_tile # 1d (5)
+    lineNumbers = game_state.players[0].lines_number # 1d (5,)
+    floor = numpy.asarray(game_state.players[0].floor) # 1d: (7,)
+
+    # Concatenate all
+    featureVec = numpy.concatenate((grid, lines, lineNumbers, floor), axis=None)
+    return featureVec
+
+def convertMoves(move):
+    tg = move[2]
+    return [tg.pattern_line_dest, tg.num_to_pattern_line, tg.tile_type]
+
 # Class that facilities a simulation of a game of AZUL. 
 class GameRunner:
-    def __init__(self, player_list, seed):
+    def __init__(self, player_list, seed, model, trainer):
         random.seed(seed)
 
         # Make sure we are forming a valid game, and that player
@@ -617,6 +633,21 @@ class GameRunner:
 
         self.game_state = GameState(len(player_list))
         self.players = player_list
+        self.model = model
+        self.trainer = trainer
+    
+    def __train__(self, oldScore, newScore, states, newStates, moves):
+        reward = newScore - oldScore
+        train_states = list(map(getFeatureVec, states))
+        train_new_states = list(map(getFeatureVec, newStates))
+        train_actions = list(map(convertMoves, moves))
+
+        for i in range(len(train_states)):
+            temp_done = [False]
+            if i == len(train_states) - 1:
+                temp_done = [True]
+            
+            self.trainer.train_step(train_states[i], train_actions[i], reward, train_new_states[i], temp_done)
 
 
     def Run(self, log_state):
@@ -630,6 +661,12 @@ class GameRunner:
         game_continuing = True
         for plr in self.game_state.players:
             plr.player_trace.StartRound()
+        
+        # Keep track of moves made by trainer player and old score
+        oldScore = self.game_state.players[0].score
+        states = []
+        newStates = []
+        trainerMoves = []
 
         while game_continuing:
             for i in player_order:
@@ -638,7 +675,13 @@ class GameRunner:
 
                 gs_copy = copy.deepcopy(self.game_state)
                 moves_copy = copy.deepcopy(moves)
+          
                 selected = self.players[i].SelectMove(moves_copy, gs_copy)
+
+                # Trainer
+                if i == 0:
+                    states.append(gs_copy)
+                    trainerMoves.append(selected)
 
                 assert(ValidMove(selected, moves))
 
@@ -649,6 +692,11 @@ class GameRunner:
                     print("\n")
 
                 self.game_state.ExecuteMove(i, selected)
+
+                if i == 0:
+                    temp_game_state_copy = copy.deepcopy(self.game_state)
+                    newStates.append(temp_game_state_copy)
+
                 if log_state:
                     print("The new player state is:")
                     print(PlayerToString(i, plr_state))
@@ -665,6 +713,10 @@ class GameRunner:
                 print("ROUND HAS ENDED")
 
             self.game_state.ExecuteEndOfRound()
+
+            # Get trainer player score
+            newScore = self.game_state.players[0].score
+            self.__train__(oldScore, newScore, states, newStates, trainerMoves)
 
             # Is it the end of the game? 
             for i in player_order:

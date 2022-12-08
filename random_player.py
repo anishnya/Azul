@@ -17,9 +17,10 @@ from model import *
 from utils import *
 import random
 
+
+
 class RandomPlayer(Player):
     def __init__(self, _id):
-        print(_id)
         super().__init__(_id)
 
     def SelectMove(self, moves, game_state):
