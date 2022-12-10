@@ -1,7 +1,0 @@
-0 minimax players vs 4 naive players:
-[12, 15, 12, 11]
-[1.92, 2.14, 2.72, 2.22]
-1 minimax players vs 3 naive players:
-[50, 0, 0, 0]
-[38.62, 1.36, 1.96, 1.92]
-2 minimax players vs 2 naive players:

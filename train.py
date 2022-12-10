@@ -23,14 +23,15 @@ import random
 import numpy as np
 
 ## 
-import torch
+# import torch
 import random
 import numpy as np
-from collections import deque
+import os, sys
 from rl_model import Linear_QNet, QTrainer
+import tqdm
 
-numRounds = 10
-model = Linear_QNet(42, 512, 1)
+NETWORK_SIZE = int(sys.argv[1])
+model = Linear_QNet(42, NETWORK_SIZE, 1)
 trainer = QTrainer(model, lr=0.01, gamma=0.9)
 
 def runGame(n_random=0):
@@ -48,24 +49,41 @@ def computeAvg(arr):
     return float(np.sum(arr)) / 1
 
 
-if __name__ == "__main__":
+def main():
+    model_basename = f"initial_state_{NETWORK_SIZE}"
+    model_name = f"{model_basename}.pth"
+    data_path = f"model/{model_basename}.txt"
+    if os.path.exists(f"model/{model_name}"):
+        print(f"error: model \"{model_name}\" already exists")
+        exit()
+    
+    model_stats = []
 
-
-    for k in range(1000000):
-        totalScores = [0, 0, 0, 0]
+    for k in (pbar := tqdm.tqdm(range(1000), dynamic_ncols=True)):
+        pbar.set_description(f"Round: {k}")
+        
+        # totalScores = [0, 0, 0, 0]
         victories = [0, 0, 0, 0]
 
-        print(f"Round: {k}")
+        # print(f"Round: {k}")
         newScores = runGame(n_random=k)
         victories[newScores.index(max(newScores))] += 1
-        for i in range(len(newScores)):
-            totalScores[i] += newScores[i]
+        # for i in range(len(newScores)):
+        #     totalScores[i] += newScores[i]
 
-        print(victories)
-        print(list(map(computeAvg, totalScores)))
+        # print(victories)
+        # print(list(map(computeAvg, totalScores)))
+        model_stats.append(f"{newScores[0]},{victories[0]}\n")
 
         if k % 100 == 0:
-            model.save()
+            model.save(model_name)
             # print(model.state_dict())
+            open(data_path, 'a').writelines(model_stats)
+            model_stats.clear()
     
     model.save()
+    open(data_path, 'a').writelines(model_stats)
+    model_stats.clear()
+
+if __name__ == "__main__":
+    main()
