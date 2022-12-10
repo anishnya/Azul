@@ -30,16 +30,28 @@ import os, sys
 from rl_model import Linear_QNet, QTrainer
 import tqdm
 
+if len(sys.argv) != 3:
+    print("usage: python train.py {network size} {feature vector type}")
+    exit()
+
 NETWORK_SIZE = int(sys.argv[1])
-model = Linear_QNet(42, NETWORK_SIZE, 1)
+FEATURE_VEC = str(sys.argv[2])
+if FEATURE_VEC == "initial":
+    NETWORK_INPUT_SIZE = 42
+elif FEATURE_VEC == "no_matrix":
+    NETWORK_INPUT_SIZE = 20
+else:
+    print(f"error: uknown feature vector type {FEATURE_VEC}")
+    exit()
+model = Linear_QNet(NETWORK_INPUT_SIZE, NETWORK_SIZE, 1)
 trainer = QTrainer(model, lr=0.01, gamma=0.9)
 
 def runGame(n_random=0):
-    players = [PlayerTrainer(0, model), RandomPlayer(1), RandomPlayer(2), RandomPlayer(3)]
+    players = [PlayerTrainer(0, model, FEATURE_VEC), RandomPlayer(1), RandomPlayer(2), RandomPlayer(3)]
     # players = [PlayerTrainer(0, model), RandomPlayer(1), RandomPlayer(2), NaivePlayer(3)]
     # players = [RandomPlayer(0), RandomPlayer(1), RandomPlayer(2), RandomPlayer(3)]
     # players = [RandomPlayer(0), RandomPlayer(1), RandomPlayer(2), NaivePlayer(3)]
-    gr = GameRunner(players, random.randint(0, 1000000000), model, trainer)
+    gr = GameRunner(players, random.randint(0, 1000000000), model, trainer, FEATURE_VEC)
     # gr = GameRunner(players, 592, model, trainer)
     activity = gr.Run(False)
 
@@ -50,7 +62,7 @@ def computeAvg(arr):
 
 
 def main():
-    model_basename = f"initial_state_{NETWORK_SIZE}"
+    model_basename = f"{FEATURE_VEC}_features_{NETWORK_SIZE}"
     model_name = f"{model_basename}.pth"
     data_path = f"model/{model_basename}.txt"
     if os.path.exists(f"model/{model_name}"):
@@ -77,11 +89,10 @@ def main():
 
         if k % 100 == 0:
             model.save(model_name)
-            # print(model.state_dict())
             open(data_path, 'a').writelines(model_stats)
             model_stats.clear()
     
-    model.save()
+    model.save(model_name)
     open(data_path, 'a').writelines(model_stats)
     model_stats.clear()
 

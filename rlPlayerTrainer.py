@@ -20,23 +20,12 @@ import os, torch
 import numpy as np
 
 
-def getFeatureVec(game_state):
-    # Get all features
-    grid = game_state.players[0].grid_state.flatten() # 2d -> 1d
-    lines = game_state.players[0].lines_tile #1d
-    lineNumbers = game_state.players[0].lines_number #1d
-    floor = np.asarray(game_state.players[0].floor) # 1d
-
-    # Concatenate all
-    featureVec = np.concatenate((grid, lines, lineNumbers, floor), axis=None)
-    return featureVec
-
-
 class PlayerTrainer(Player):
-    def __init__(self, _id, model):
+    def __init__(self, _id, model, vector_type):
         super().__init__(_id)
         self.model = model
         self.epsilon = 0.9
+        self.vector_type = vector_type
 
     def SelectMove(self, moves, game_state):
         # Choose Move
@@ -47,7 +36,7 @@ class PlayerTrainer(Player):
                 # Get feature vec
                 temp_game_state = copy.deepcopy(game_state)
                 temp_game_state.ExecuteMove(0, m)
-                featureVec = getFeatureVec(temp_game_state)
+                featureVec = getFeatureVec(temp_game_state, requested_vec=self.vector_type)
                 
                 # Evaluate and choose best
                 state0 = torch.tensor(featureVec, dtype=torch.float)

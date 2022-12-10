@@ -601,16 +601,16 @@ class Player(object):
         return random.choice(moves)
 
 
-def getFeatureVec(game_state):
-    # Get all features
-    grid = game_state.players[0].grid_state.flatten() # 2d -> 1d (25)
-    lines = game_state.players[0].lines_tile # 1d (5)
-    lineNumbers = game_state.players[0].lines_number # 1d (5,)
-    floor = numpy.asarray(game_state.players[0].floor) # 1d: (7,)
+# def getFeatureVec(game_state):
+#     # Get all features
+#     grid = game_state.players[0].grid_state.flatten() # 2d -> 1d (25)
+#     lines = game_state.players[0].lines_tile # 1d (5)
+#     lineNumbers = game_state.players[0].lines_number # 1d (5,)
+#     floor = numpy.asarray(game_state.players[0].floor) # 1d: (7,)
 
-    # Concatenate all
-    featureVec = numpy.concatenate((grid, lines, lineNumbers, floor), axis=None)
-    return featureVec
+#     # Concatenate all
+#     featureVec = numpy.concatenate((grid, lines, lineNumbers, floor), axis=None)
+#     return featureVec
 
 def convertMoves(move):
     tg = move[2]
@@ -618,7 +618,7 @@ def convertMoves(move):
 
 # Class that facilities a simulation of a game of AZUL. 
 class GameRunner:
-    def __init__(self, player_list, seed, model, trainer):
+    def __init__(self, player_list, seed, model, trainer, feature_vec):
         random.seed(seed)
 
         # Make sure we are forming a valid game, and that player
@@ -635,11 +635,22 @@ class GameRunner:
         self.players = player_list
         self.model = model
         self.trainer = trainer
+        self.feature_vec = feature_vec
     
     def __train__(self, oldScore, newScore, states, newStates, moves):
         reward = newScore - oldScore
-        train_states = list(map(getFeatureVec, states))
-        train_new_states = list(map(getFeatureVec, newStates))
+        # train_states = list(map(getFeatureVec, states, self.feature_vec))
+        # train_new_states = list(map(getFeatureVec, newStates, self.feature_vec))
+        
+        train_states = []
+        for s in states:
+            train_states.append(getFeatureVec(s, self.feature_vec))
+        train_new_states = []
+        for s in newStates:
+            train_new_states.append(getFeatureVec(s, self.feature_vec))
+
+
+
         train_actions = list(map(convertMoves, moves))
 
         for i in range(len(train_states)):

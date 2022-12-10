@@ -14,6 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 from enum import IntEnum
+import numpy as np
 
 # There are 5 types of tiles in the game, each differentiated by colour.
 class Tile(IntEnum):
@@ -251,3 +252,42 @@ def BoardToString(game_state):
         desc += " + first player token (-1)\n"
          
     return desc
+
+def getFeatureVec(game_state, requested_vec):
+    """
+    Valid vectors:
+        - initial: grid, lines, lineNumbers, floor
+        - no_matrix: instead of matrix have num ties in col and row, also remove floor
+    """
+    if requested_vec == "initial":
+        # Get all features
+        grid = game_state.players[0].grid_state.flatten() # 2d -> 1d
+        lines = game_state.players[0].lines_tile #1d
+        lineNumbers = game_state.players[0].lines_number #1d
+        floor = np.asarray(game_state.players[0].floor) # 1d
+
+        # Concatenate all
+        featureVec = np.concatenate((grid, lines, lineNumbers, floor), axis=None)
+    elif requested_vec == "no_matrix":
+        # Get all features
+        grid = game_state.players[0].grid_state
+        grid[0, 3] = 3.
+        output = np.zeros((10,))
+        for i in range(5):
+            output[i] = np.count_nonzero(grid[i])
+        grid2 = grid.T
+        for i in range(5):
+            output[i+5] = np.count_nonzero(grid2[i])
+
+        
+        lines = game_state.players[0].lines_tile #1d
+        lineNumbers = game_state.players[0].lines_number #1d
+        # floor = np.asarray(game_state.players[0].floor) # 1d
+
+        # Concatenate all
+        featureVec = np.concatenate((output, lines, lineNumbers), axis=None)
+    else:
+        # print("error")
+        # print(requested_vec)
+        exit()
+    return featureVec

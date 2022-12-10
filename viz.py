@@ -1,5 +1,6 @@
 import os
 import matplotlib.pyplot as plt
+import tqdm
 
 
 def max_seen_so_far(stats):
@@ -48,16 +49,24 @@ def read_and_plot(model_basename):
     axs[2].plot(wrs)
     axs[2].set_title("WR")
     axs[2].axhline(y=0.5, color='r', linestyle='dashed')
-    plt.savefig(f"{model_basename}.png")
+
+    if not os.path.exists(model_folder_path := "figures"):
+        os.makedirs(model_folder_path)
+    plt.savefig(f"{model_folder_path}/{model_basename}.png")
 
 
 def main():
     model_names = [
-        "initial_state_256",
-        "initial_state_512",
-        "initial_state_1024",
+        "initial_features_128",
+        "initial_features_256",
+        "initial_features_512",
+        "initial_features_1024",
+        "no_matrix_features_128",
+        "no_matrix_features_256",
+        "no_matrix_features_512",
+        "no_matrix_features_1024",
     ]
-    for model in model_names:
+    for model in tqdm.tqdm(model_names):
         read_and_plot(model)
 
 
