@@ -30,16 +30,19 @@ import os, sys
 from rl_model import Linear_QNet, QTrainer
 import tqdm
 
-if len(sys.argv) != 3:
-    print("usage: python train.py {network size} {feature vector type}")
+if len(sys.argv) != 4:
+    print("usage: python train.py {network size} {feature vector type} {num layers}")
     exit()
 
 NETWORK_SIZE = int(sys.argv[1])
 FEATURE_VEC = str(sys.argv[2])
+NUM_LAYERS = int(sys.argv[3])
 if FEATURE_VEC == "initial":
     NETWORK_INPUT_SIZE = 42
 elif FEATURE_VEC == "no_matrix":
     NETWORK_INPUT_SIZE = 20
+elif FEATURE_VEC == "no_floor":
+    NETWORK_INPUT_SIZE = 35
 else:
     print(f"error: uknown feature vector type {FEATURE_VEC}")
     exit()
@@ -47,7 +50,10 @@ model = Linear_QNet(NETWORK_INPUT_SIZE, NETWORK_SIZE, 1)
 trainer = QTrainer(model, lr=0.01, gamma=0.9)
 
 def runGame(n_random=0):
-    players = [PlayerTrainer(0, model, FEATURE_VEC), RandomPlayer(1), RandomPlayer(2), RandomPlayer(3)]
+    # players = [PlayerTrainer(0, model, FEATURE_VEC), RandomPlayer(1), RandomPlayer(2), RandomPlayer(3)]
+    players = [PlayerTrainer(0, model, FEATURE_VEC), NaivePlayer(1), RandomPlayer(2), RandomPlayer(3)]
+    # players = [RandomPlayer(0), RandomPlayer(1), RandomPlayer(2), RandomPlayer(3)]
+    # players = [NaivePlayer(0), RandomPlayer(1), RandomPlayer(2), RandomPlayer(3)]
     # players = [PlayerTrainer(0, model), RandomPlayer(1), RandomPlayer(2), NaivePlayer(3)]
     # players = [RandomPlayer(0), RandomPlayer(1), RandomPlayer(2), RandomPlayer(3)]
     # players = [RandomPlayer(0), RandomPlayer(1), RandomPlayer(2), NaivePlayer(3)]
@@ -62,7 +68,7 @@ def computeAvg(arr):
 
 
 def main():
-    model_basename = f"{FEATURE_VEC}_features_{NETWORK_SIZE}"
+    model_basename = f"{FEATURE_VEC}_features_{NETWORK_SIZE}_{NUM_LAYERS}_layers_against_naive"
     model_name = f"{model_basename}.pth"
     data_path = f"model/{model_basename}.txt"
     if os.path.exists(f"model/{model_name}"):

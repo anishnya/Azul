@@ -286,6 +286,14 @@ def getFeatureVec(game_state, requested_vec):
 
         # Concatenate all
         featureVec = np.concatenate((output, lines, lineNumbers), axis=None)
+    elif requested_vec == "no_floor":
+        # Get all features
+        grid = game_state.players[0].grid_state.flatten() # 2d -> 1d
+        lines = game_state.players[0].lines_tile #1d
+        lineNumbers = game_state.players[0].lines_number #1d
+
+        # Concatenate all
+        featureVec = np.concatenate((grid, lines, lineNumbers), axis=None)
     else:
         # print("error")
         # print(requested_vec)

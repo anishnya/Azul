@@ -4,3 +4,5 @@
 *.png
 *.txt
 *.pyc
+*.zip
+**.DS_Store
